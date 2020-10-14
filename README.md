@@ -7,6 +7,7 @@ current highest consistent average test accuracy: 60%
 input:  
   > blue team = 'Renekton', 'Lee Sin', 'Syndra', 'Draven', 'Blitzcrank'  
   > red team = 'Ornn', 'Nidalee', 'Orianna', 'Ashe', 'Sett'  
+  
 prediction:  
   > red wins with 73.79% probability  
   
