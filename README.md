@@ -13,4 +13,4 @@ prediction:
   
 proof that sinner comps lose
 
-WORK IN PROGRESS...
+FRONTEND WORK IN PROGRESS
