@@ -1,6 +1,11 @@
+import torch
+import torch.nn as nn
+import pickle
+import numpy as np
+
+from features import exp_features as features
+
 def parse_champs(game):
-    import pickle
-    import numpy as np
     with open('data/champ_dict.pkl', 'rb') as f:
         champ_dict = pickle.load(f)
         
@@ -17,16 +22,12 @@ def parse_champs(game):
     return np.concatenate((five_hot1, five_hot2))
 
 def load_model(path):
-    import torch
-    import torch.nn as nn
-    from features import exp_features as features
     model = nn.Sequential(*features).cuda()
     model.load_state_dict(torch.load(f'models/{path}'))
     model.eval()
     return model
 
 def custom_test(game,model='quarter_finals.pth'):
-    import torch
     net = load_model(model)
     ten_hot = parse_champs(game)
     custom_X = torch.tensor(ten_hot, dtype=torch.float)
