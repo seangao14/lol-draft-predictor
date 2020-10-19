@@ -37,3 +37,8 @@ def custom_test(game,model='quarter_finals.pth'):
         output = net(custom_X.cuda())
     
     return F.softmax(output, dim=-1)
+
+def get_unique():
+    with open('data/champ_dict.pkl', 'rb') as f:
+        champ_dict = pickle.load(f)
+    return champ_dict.keys()
