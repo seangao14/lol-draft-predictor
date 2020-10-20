@@ -34,7 +34,10 @@ def custom_test(game,model='quarter_finals.pth'):
     
     '''
     net = load_model(model)
-    ten_hot = parse_champs(game)
+    try:
+        ten_hot = parse_champs(game)
+    except:
+        return "We had an issue with your input"
     custom_X = torch.tensor(ten_hot, dtype=torch.float)
     
     net.eval()
