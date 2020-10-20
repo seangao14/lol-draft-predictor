@@ -38,13 +38,14 @@ def custom_test(game,model='quarter_finals.pth'):
         ten_hot = parse_champs(game)
     except:
         return "We had an issue with your input"
+        
     custom_X = torch.tensor(ten_hot, dtype=torch.float)
     
     net.eval()
     with torch.no_grad():
         output = net(custom_X)
     
-    return F.softmax(output, dim=-1)
+    return F.softmax(output, dim=-1).numpy()
 
 def get_unique():
     '''
