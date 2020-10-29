@@ -24,7 +24,7 @@ def parse_champs(game):
 
 def load_model(path):
     model = nn.Sequential(*features)
-    model.load_state_dict(torch.load(f'models/{path}'))
+    model.load_state_dict(torch.load(f'models/{path}', map_location=torch.device('cpu')))
     model.eval()
     return model
 
